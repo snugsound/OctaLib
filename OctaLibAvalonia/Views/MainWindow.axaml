@@ -11,6 +11,7 @@
         Icon="/Assets/avalonia-logo.ico"
         CanResize="False"
         SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
         Title="OctaLibAvalonia">
 
     <dialogHost:DialogHost Name="ErrorDialog" Identifier="MainDialogHost"

@@ -21,7 +21,7 @@
                 <MenuItem Header="Exit" />
             </MenuItem>
             <MenuItem Header="_Edit">
-                <MenuItem Name="SwapBanksMenuItem" Header="Swap Banks" Click="OnSwapBanks" IsEnabled="False"/>
+                <MenuItem Name="SwapBanksMenuItem" Header="Swap Banks" Command="{Binding BankSwapCommand}" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="About" Click="OnAbout"/>
