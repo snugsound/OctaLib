@@ -45,7 +45,7 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
         var topLevel = TopLevel.GetTopLevel(this);
         var result = topLevel.StorageProvider.OpenFolderPickerAsync(options);
 
-        if (result == null)
+        if (result == null || result.Result.Count == 0)
         {
             return;
         }

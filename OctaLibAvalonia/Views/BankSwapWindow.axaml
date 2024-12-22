@@ -7,9 +7,10 @@
         Title="BankSwapWindow"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
-        Width="1000" Height="550"
+        Width="320" Height="180"
+        CanResize="False"
         WindowStartupLocation="CenterOwner">
-    <Panel>
+    <Panel Margin="0 30 0 0">
         <ExperimentalAcrylicBorder IsHitTestVisible="False">
             <ExperimentalAcrylicBorder.Material>
                 <ExperimentalAcrylicMaterial
@@ -20,8 +21,18 @@
             </ExperimentalAcrylicBorder.Material>
         </ExperimentalAcrylicBorder>
 
-        <Panel Margin="40">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Bank 1:" Width="50"/>
+                <TextBox Name="Bank1" Width="50" Margin="10 0 0 0"/>
+                <TextBlock Text="Bank 2:" Width="50" Margin="10 0 0 0"/>
+                <TextBox Name="Bank2" Width="50" Margin="10 0 0 0"/>
+            </StackPanel>
+            <TextBlock Margin="10" Name="Error"/>
+            <Button Margin="10" Click="OnBankSwap">
+                SWAP
+            </Button>
+        </StackPanel>
 
-        </Panel>
     </Panel>
 </Window>
