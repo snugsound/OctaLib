@@ -96,6 +96,11 @@ internal class Program
                     Console.WriteLine("Invalid bank number (expected: 1-16)");
                     return;
                 }
+                if (b1 == b2)
+                {
+                    Console.WriteLine("Bank numbers must be different");
+                    return;
+                }
                 BankUtils.SwapBanks(args[ARG_PATH], b1, b2);
                 break;
         }
