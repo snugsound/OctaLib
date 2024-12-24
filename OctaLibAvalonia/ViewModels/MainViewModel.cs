@@ -1,5 +1,8 @@
-﻿using OctaLibAvalonia.Models;
+﻿using Avalonia.Controls;
+using OctaLibAvalonia.Models;
+using OctaLibAvalonia.Views;
 using ReactiveUI;
+using System;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reflection;
@@ -12,6 +15,9 @@ public class MainViewModel : ViewModelBase
     public Banks Banks {  get; set; }
 
     public static string? LoadedProject {  get; set; }
+
+    public delegate void Reload();
+    public static Reload OnReload;
 
     public string CurrentVersion
     {
@@ -35,6 +41,7 @@ public class MainViewModel : ViewModelBase
             var model = new BankSwapViewModel();
 
             var result = await ShowDialog.Handle(model);
+            OnReload?.DynamicInvoke();
         });
     }
 

@@ -24,6 +24,8 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
 
         this.WhenActivated(action =>
             action(ViewModel!.ShowDialog.RegisterHandler(DoShowDialogAsync)));
+
+        MainViewModel.OnReload += ReloadProject;
     }
 
     // This code is only valid in newer ReactiveUI which is shipped since avalonia 11.2.0 
@@ -69,9 +71,15 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
         }
 
         TopText.Text = $"Loaded project: {folder}";
+        LoadProject(folder);
+
         MainViewModel.LoadedProject = folder;
         SwapBanksMenuItem.IsEnabled = true;
 
+    }
+
+    private void LoadProject(string folder)
+    {
         var banks = new Banks();
 
         for (int bankNum = 1; bankNum < 17; bankNum++)
@@ -109,6 +117,11 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
     {
         var topLevel = TopLevel.GetTopLevel(this);
         await DialogHost.Show(topLevel.Resources["AboutDialog"], "MainDialogHost");
+    }
+
+    public void ReloadProject()
+    {
+        LoadProject(MainViewModel.LoadedProject);
     }
 
 }

@@ -46,11 +46,8 @@ public partial class BankSwapWindow : Window
             return;
         }
 
-        // TODO: Do the swap, close window
         BankUtils.SwapBanks(MainViewModel.LoadedProject, b1, b2);
-
         this.Close();
-        
 
     }
 }
