@@ -23,9 +23,9 @@
 
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Bank 1:" Width="50"/>
+                <TextBlock Text="Bank 1:" Width="50" VerticalAlignment="Center"/>
                 <TextBox Name="Bank1" Width="50" Margin="10 0 0 0"/>
-                <TextBlock Text="Bank 2:" Width="50" Margin="10 0 0 0"/>
+                <TextBlock Text="Bank 2:" Width="50" Margin="10 0 0 0"  VerticalAlignment="Center"/>
                 <TextBox Name="Bank2" Width="50" Margin="10 0 0 0"/>
             </StackPanel>
             <TextBlock Margin="10" Name="Error"/>

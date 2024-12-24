@@ -1,5 +1,8 @@
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
+using OctaLib;
+using OctaLibAvalonia.ViewModels;
 using System;
 
 namespace OctaLibAvalonia.Views;
@@ -44,6 +47,10 @@ public partial class BankSwapWindow : Window
         }
 
         // TODO: Do the swap, close window
+        BankUtils.SwapBanks(MainViewModel.LoadedProject, b1, b2);
+
+        this.Close();
+        
 
     }
 }

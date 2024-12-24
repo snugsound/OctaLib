@@ -69,6 +69,7 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
         }
 
         TopText.Text = $"Loaded project: {folder}";
+        MainViewModel.LoadedProject = folder;
         SwapBanksMenuItem.IsEnabled = true;
 
         var banks = new Banks();

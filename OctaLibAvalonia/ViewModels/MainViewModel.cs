@@ -11,6 +11,8 @@ public class MainViewModel : ViewModelBase
 {
     public Banks Banks {  get; set; }
 
+    public static string? LoadedProject {  get; set; }
+
     public string CurrentVersion
     {
         get
