@@ -30,11 +30,11 @@ public class Pattern
             {
                 if (Status)
                 {
-                    return ImageHelper.LoadFromResource("avares://OctaLibAvalonia/Assets/ot-button-illum-outline.png");
+                    return ImageHelper.LoadFromResource("avares://OctaLib/Assets/ot-button-illum-outline.png");
                 }
                 else
                 {
-                    return ImageHelper.LoadFromResource("avares://OctaLibAvalonia/Assets/ot-button-outline.png");
+                    return ImageHelper.LoadFromResource("avares://OctaLib/Assets/ot-button-outline.png");
                 }
 
             }
@@ -42,11 +42,11 @@ public class Pattern
             {
                 if (Status)
                 {
-                    return ImageHelper.LoadFromResource("avares://OctaLibAvalonia/Assets/ot-button-illum.png");
+                    return ImageHelper.LoadFromResource("avares://OctaLib/Assets/ot-button-illum.png");
                 }
                 else
                 {
-                    return ImageHelper.LoadFromResource("avares://OctaLibAvalonia/Assets/ot-button.png");
+                    return ImageHelper.LoadFromResource("avares://OctaLib/Assets/ot-button.png");
                 }
 
             }

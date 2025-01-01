@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLibAvalonia", "OctaLibAvalonia\OctaLibAvalonia.csproj", "{0FD4508F-BE3B-4E42-B217-4C4BF9ACC5B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLib", "OctaLib\OctaLib.csproj", "{0FD4508F-BE3B-4E42-B217-4C4BF9ACC5B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLibAvalonia.Desktop", "OctaLibAvalonia.Desktop\OctaLibAvalonia.Desktop.csproj", "{A759926C-AA71-4BC1-86D6-7DD53EF638EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLib.Desktop", "OctaLib.Desktop\OctaLib.Desktop.csproj", "{A759926C-AA71-4BC1-86D6-7DD53EF638EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLib", "OctaLib\OctaLib.csproj", "{ACBB3B78-C0F5-4137-80C7-60DBC500D136}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLibCore", "OctaLibCore\OctaLibCore.csproj", "{ACBB3B78-C0F5-4137-80C7-60DBC500D136}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctaLibConsole", "OctaLibConsole\OctaLibConsole.csproj", "{430CE748-904A-4CB4-9CF7-229EBB67FFD5}"
 EndProject
