@@ -15,9 +15,4 @@ public partial class MainWindow : Window
 #endif
     }
 
-    private async void OnSwapBanksActions(object sender, RoutedEventArgs e)
-    {
-
-    }
-
 }

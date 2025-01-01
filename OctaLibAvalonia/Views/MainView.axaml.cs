@@ -1,20 +1,42 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using Avalonia.ReactiveUI;
 using DialogHostAvalonia;
 using OctaLib;
 using OctaLibAvalonia.Models;
+using OctaLibAvalonia.ViewModels;
+using ReactiveUI;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace OctaLibAvalonia.Views;
 
-public partial class MainView : UserControl
+public partial class MainView : ReactiveUserControl<MainViewModel>
 {
 
     public MainView()
     {
         InitializeComponent();
+
+        this.WhenActivated(action =>
+            action(ViewModel!.ShowDialog.RegisterHandler(DoShowDialogAsync)));
+
+        MainViewModel.OnReload += ReloadProject;
+    }
+
+    // This code is only valid in newer ReactiveUI which is shipped since avalonia 11.2.0 
+    private async Task DoShowDialogAsync(IInteractionContext<BankSwapViewModel, BankSwapViewModel> interaction)
+    {
+        var dialog = new BankSwapWindow();
+        dialog.DataContext = interaction.Input;
+
+        var mainWindow = Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop ? desktop.MainWindow : null;
+        var result = await dialog.ShowDialog<BankSwapViewModel>(mainWindow);
+        interaction.SetOutput(result);
     }
 
     private async void OnOpenProject(object sender, RoutedEventArgs e)
@@ -25,7 +47,7 @@ public partial class MainView : UserControl
         var topLevel = TopLevel.GetTopLevel(this);
         var result = topLevel.StorageProvider.OpenFolderPickerAsync(options);
 
-        if (result == null)
+        if (result == null || result.Result.Count == 0)
         {
             return;
         }
@@ -49,8 +71,15 @@ public partial class MainView : UserControl
         }
 
         TopText.Text = $"Loaded project: {folder}";
+        LoadProject(folder);
+
+        MainViewModel.LoadedProject = folder;
         SwapBanksMenuItem.IsEnabled = true;
 
+    }
+
+    private void LoadProject(string folder)
+    {
         var banks = new Banks();
 
         for (int bankNum = 1; bankNum < 17; bankNum++)
@@ -84,15 +113,15 @@ public partial class MainView : UserControl
         BankItems.ItemsSource = banks;
     }
 
-    private async void OnSwapBanks(object sender, RoutedEventArgs e)
-    {
-        await DialogHost.Show(TopLevel.GetTopLevel(this).Resources["SwapBanksDialog"], "MainDialogHost");
-    }
-
     private async void OnAbout(object sender, RoutedEventArgs e)
     {
         var topLevel = TopLevel.GetTopLevel(this);
         await DialogHost.Show(topLevel.Resources["AboutDialog"], "MainDialogHost");
+    }
+
+    public void ReloadProject()
+    {
+        LoadProject(MainViewModel.LoadedProject);
     }
 
 }

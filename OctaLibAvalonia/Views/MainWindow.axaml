@@ -11,25 +11,12 @@
         Icon="/Assets/avalonia-logo.ico"
         CanResize="False"
         SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
         Title="OctaLibAvalonia">
 
     <dialogHost:DialogHost Name="ErrorDialog" Identifier="MainDialogHost"
                                    DialogMargin="16"
                                    dialogHost:DialogHostStyle.CornerRadius="8">
-        <!--
-        <dialogHost:DialogHost.DialogContent>
-            <StackPanel>
-                <TextBlock TextAlignment="Center">Your lucky number:</TextBlock>
-                <TextBlock Classes="Body1"
-                            TextAlignment="Center"
-                            Text="13" />
-                <Button Margin="0 8 0 0"
-                        Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
-                    THANKS, CLOSE
-                </Button>
-            </StackPanel>
-        </dialogHost:DialogHost.DialogContent>
-        -->
         <views:MainView />
     </dialogHost:DialogHost>
 
@@ -42,31 +29,6 @@
             <Button Margin="0 16 0 0"
                     Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
                 CLOSE
-            </Button>
-        </StackPanel>
-
-        <StackPanel x:Key="SwapBanksDialog">
-            <UniformGrid Columns="2">
-                <TextBlock Text="Bank1:"/>
-                <TextBox Name="Bank1"/>
-                <TextBlock Margin="0 5 0 0" Text="Bank2:"/>
-                <TextBox Name="Bank2"/>
-            </UniformGrid>
-            <TextBlock Margin="0 16 0 0" Name="Error"/>
-            <Button Margin="0 16 0 0" Command="{Binding OnSwapBanksAction}">
-                <!--
-                <Button.CommandParameter>
-                    <MultiBinding Converter="{StaticResource BankSwapConverter}">
-                        <Binding ElementName="Bank1" Path="Bank1"/>
-                        <Binding ElementName="Bank2" Path="Bank2"/>
-                    </MultiBinding>
-                </Button.CommandParameter>
-                -->
-                SWAP
-            </Button>
-            <Button Margin="0 16 0 0"
-                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
-                CANCEL
             </Button>
         </StackPanel>
 
