@@ -9,7 +9,7 @@ internal class Program
 
     private static void IntegrityCheck(string path)
     {
-        if (!File.Exists(path + "\\project.strd"))
+        if (!File.Exists(Path.Combine(path, "project.strd")))
         {
             Console.WriteLine("This does not appear to be a valid Octatrack project directory");
             return;
@@ -31,7 +31,7 @@ internal class Program
         {
 
             var bankNumStr = bankNum.ToString("00");
-            var b = File.ReadAllBytes(path + $"\\bank{bankNumStr}.strd");
+            var b = File.ReadAllBytes(Path.Combine(path, $"bank{bankNumStr}.strd"));
 
             if (!BankUtils.ValidateHeader(b))
             {

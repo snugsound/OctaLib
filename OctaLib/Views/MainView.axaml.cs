@@ -87,7 +87,7 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
             patterns.Clear();
 
             var bankNumStr = bankNum.ToString("00");
-            var b = File.ReadAllBytes(folder + $"\\bank{bankNumStr}.strd");
+            var b = File.ReadAllBytes(Path.Combine(folder, $"bank{bankNumStr}.strd"));
 
             var partNames = new string[4];
             for (int partNum = 0; partNum < 4; partNum++)
