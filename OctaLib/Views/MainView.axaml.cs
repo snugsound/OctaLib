@@ -45,16 +45,16 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
         options.Title = "Select project folder";
 
         var topLevel = TopLevel.GetTopLevel(this);
-        var result = topLevel.StorageProvider.OpenFolderPickerAsync(options);
+         var result = await topLevel.StorageProvider.OpenFolderPickerAsync(options);
 
-        if (result == null || result.Result.Count == 0)
+        if (result == null || result.Count == 0)
         {
             return;
         }
-        Trace.WriteLine($"Selected folder {result.Result[0].Path.LocalPath}");
+        Trace.WriteLine($"Selected folder {result[0].Path.LocalPath}");
 
         int version = -1;
-        var folder = result.Result[0].Path.LocalPath;
+        var folder = result[0].Path.LocalPath;
         try
         {
             version = ProjectUtils.GetVersion(folder);
@@ -75,7 +75,6 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
 
         MainViewModel.LoadedProject = folder;
         SwapBanksMenuItem.IsEnabled = true;
-
     }
 
     private void LoadProject(string folder)
