@@ -177,7 +177,7 @@
         {
             string GenerateBankName(int bankNum)
             {
-                return path + "\\bank" + bankNum.ToString("00");
+                return Path.Combine(path, $"bank{bankNum.ToString("00")}");
             }
 
             // Temporarily rename bank1 files
