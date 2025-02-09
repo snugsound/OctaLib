@@ -45,7 +45,7 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
         options.Title = "Select project folder";
 
         var topLevel = TopLevel.GetTopLevel(this);
-         var result = await topLevel.StorageProvider.OpenFolderPickerAsync(options);
+        var result = await topLevel.StorageProvider.OpenFolderPickerAsync(options);
 
         if (result == null || result.Count == 0)
         {
