@@ -18,7 +18,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="Open Project Folder" Click="OnOpenProject"/>
-                <MenuItem Header="Exit" />
+                <MenuItem Header="Exit" Click="OnExit"/>
             </MenuItem>
             <MenuItem Header="_Edit">
                 <MenuItem Name="SwapBanksMenuItem" Header="Swap Banks" Command="{Binding BankSwapCommand}" IsEnabled="False"/>

@@ -123,4 +123,11 @@ public partial class MainView : ReactiveUserControl<MainViewModel>
         LoadProject(MainViewModel.LoadedProject);
     }
 
+    private void OnExit(object sender, RoutedEventArgs e)
+    {
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime appLifetime)
+        {
+            appLifetime.Shutdown();
+        }
+    }
 }
