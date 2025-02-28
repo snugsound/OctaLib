@@ -405,3 +405,14 @@ FodyWeavers.xsd
 # Ghostery backup files
 *.md.backup
 
+# macOS system files
+.DS_Store
+
+# macOS build artifacts
+OctaLib.Desktop/OctaLib.Desktop.app/
+OctaLib.Desktop/*.dmg
+OctaLib.Desktop/oldbuilds/
+publish-arm64/
+publish-x64/
+
+*.sln
